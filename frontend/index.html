@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SentenceCraft AI | Sentence Creator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-effects">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+    </div>
+
+    <header class="navbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">✦</span>
+            <span>Sentence<span class="brand-highlight">Craft</span></span>
+        </a>
+
+        <div class="nav-right">
+            <span class="status-dot"></span>
+            <span class="status-text">Sentence Studio</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-badge">
+                <span>✧</span> YOUR PERSONAL WRITING STUDIO
+            </div>
+
+            <h1>
+                Turn your words into
+                <span class="gradient-text">beautiful sentences.</span>
+            </h1>
+
+            <p class="hero-description">
+                Enter your ideas, choose your style, and create meaningful
+                sentences in seconds.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-icon">✍️</span>
+                    <span>Creative Writing</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-icon">⚡</span>
+                    <span>Instant Results</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-icon">🎯</span>
+                    <span>Easy to Use</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="workspace">
+
+            <div class="panel input-panel">
+
+                <div class="panel-heading">
+                    <div class="heading-icon">✎</div>
+
+                    <div>
+                        <h2>Create a sentence</h2>
+                        <p>Start with a word or an idea.</p>
+                    </div>
+                </div>
+
+                <form id="sentenceForm">
+
+                    <label for="keyword">Your word or idea</label>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">✦</span>
+
+                        <input
+                            type="text"
+                            id="keyword"
+                            placeholder="e.g. friendship, success, technology"
+                            maxlength="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="field-meta">
+                        <span>Enter a word, phrase, or short idea</span>
+                        <span id="charCount">0/120</span>
+                    </div>
+
+                    <label>Choose your sentence style</label>
+
+                    <div class="style-grid">
+
+                        <button type="button" class="style-card active" data-style="simple">
+                            <span class="style-emoji">🌱</span>
+                            <span class="style-name">Simple</span>
+                            <span class="style-description">Clear & easy</span>
+                        </button>
+
+                        <button type="button" class="style-card" data-style="creative">
+                            <span class="style-emoji">🎨</span>
+                            <span class="style-name">Creative</span>
+                            <span class="style-description">Expressive</span>
+                        </button>
+
+                        <button type="button" class="style-card" data-style="professional">
+                            <span class="style-emoji">💼</span>
+                            <span class="style-name">Professional</span>
+                            <span class="style-description">Formal tone</span>
+                        </button>
+
+                        <button type="button" class="style-card" data-style="motivational">
+                            <span class="style-emoji">🚀</span>
+                            <span class="style-name">Motivational</span>
+                            <span class="style-description">Inspiring</span>
+                        </button>
+
+                        <button type="button" class="style-card" data-style="question">
+                            <span class="style-emoji">❓</span>
+                            <span class="style-name">Question</span>
+                            <span class="style-description">Ask something</span>
+                        </button>
+
+                        <button type="button" class="style-card" data-style="negative">
+                            <span class="style-emoji">🔄</span>
+                            <span class="style-name">Negative</span>
+                            <span class="style-description">Negative form</span>
+                        </button>
+
+                    </div>
+
+                    <label for="context">Additional context <span class="optional">(Optional)</span></label>
+
+                    <textarea
+                        id="context"
+                        placeholder="Add details to make your sentence more meaningful..."
+                        rows="3"
+                        maxlength="250"
+                    ></textarea>
+
+                    <button type="submit" class="generate-button" id="generateButton">
+                        <span class="button-sparkle">✦</span>
+                        <span id="buttonText">Create My Sentence</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                    <p class="privacy-note">
+                        ✨ Your ideas, transformed into words.
+                    </p>
+
+                </form>
+            </div>
+
+            <div class="panel result-panel">
+
+                <div class="result-heading">
+                    <div>
+                        <div class="result-label">
+                            <span class="result-live-dot"></span>
+                            YOUR CREATION
+                        </div>
+
+                        <h2>Sentence result</h2>
+                        <p>Your sentence will appear here.</p>
+                    </div>
+
+                    <div class="result-symbol">✧</div>
+                </div>
+
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-illustration">
+                        <div class="empty-circle circle-back"></div>
+                        <div class="empty-circle circle-front">
+                            <span>✍️</span>
+                        </div>
+                        <span class="floating-star star-one">✦</span>
+                        <span class="floating-star star-two">✧</span>
+                        <span class="floating-star star-three">✦</span>
+                    </div>
+
+                    <h3>Something wonderful starts here.</h3>
+
+                    <p>
+                        Enter a word, choose a style, and let your creativity
+                        flow.
+                    </p>
+
+                    <div class="example-chip" id="exampleChip">
+                        Try: <button type="button" id="tryExample">Success</button>
+                    </div>
+                </div>
+
+                <div class="result-content hidden" id="resultContent">
+
+                    <div class="result-tag" id="resultTag">
+                        <span>✦</span> SIMPLE SENTENCE
+                    </div>
+
+                    <p class="sentence-text" id="sentenceText"></p>
+
+                    <div class="result-divider"></div>
+
+                    <div class="result-footer">
+                        <span class="word-count" id="wordCount">0 words</span>
+
+                        <button type="button" class="copy-button" id="copyButton">
+                            <span>▣</span>
+                            <span id="copyText">Copy sentence</span>
+                        </button>
+                    </div>
+
+                    <div class="success-message hidden" id="successMessage">
+                        ✓ Sentence copied successfully!
+                    </div>
+
+                    <button type="button" class="another-button" id="anotherButton">
+                        <span>↻</span> Create another sentence
+                    </button>
+
+                </div>
+
+                <div class="tips-box">
+                    <div class="tips-icon">💡</div>
+                    <div>
+                        <strong>Writing tip</strong>
+                        <p id="writingTip">
+                            A good sentence communicates one clear idea.
+                            Keep your words simple and meaningful.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="feature-section">
+
+            <div class="section-heading">
+                <span>WHY SENTENCECRAFT?</span>
+                <h2>Make every word count.</h2>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-purple">✍️</div>
+                    <h3>Express your ideas</h3>
+                    <p>Turn short words and ideas into complete sentences.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-blue">🎨</div>
+                    <h3>Explore different styles</h3>
+                    <p>Try simple, creative, professional, and other styles.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-pink">⚡</div>
+                    <h3>Write faster</h3>
+                    <p>Create examples quickly for writing practice and learning.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <a href="#" class="footer-brand">✦ SentenceCraft</a>
+            <p>Created for curious minds and creative writers.</p>
+            <span>© 2026 SentenceCraft Studio</span>
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
